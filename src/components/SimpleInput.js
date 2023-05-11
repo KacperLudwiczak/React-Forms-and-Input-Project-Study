@@ -8,13 +8,11 @@ const SimpleInput = (props) => {
   const enteredNameIsValid = enteredName.trim() !== "";
   const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
 
-  useEffect(() => {
-    if (enteredNameIsValid) {
-      setFormIsValid(true);
-    } else {
-      setFormIsValid(false);
-    }
-  }, [enteredNameIsValid]);
+  if (enteredNameIsValid) {
+    setFormIsValid(true);
+  } else {
+    setFormIsValid(false);
+  }
 
   const nameInputChangeHandler = (event) => {
     setEnteredName(event.target.value);
